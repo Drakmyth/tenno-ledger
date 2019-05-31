@@ -11,7 +11,7 @@ const Item: FunctionComponent<ItemProps> = (props) => {
 
     return (
         <div className="Item">
-            <img src={imageSrc} alt="No Image"></img>
+            <img src={imageSrc} alt={props.title}></img>
             <span>{props.title}</span>
         </div>
     );
