@@ -1,4 +1,32 @@
+.ItemCategory {
+    margin: 0 10px;
+    width: 80%;
+    align-self: center;
+}
+
+.ItemCategory header {
+    padding: 10px 0;
+}
+
 .Items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 10px;
+}
+
+@media only screen and (max-width: 750px) {
+    .Items {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1300px) {
+    .Items {
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+    }
+}
+
+@media only screen and (min-width: 1301px) {
+    .Items {
+        grid-template-columns: repeat(6, minmax(100px, 1fr));
+    }
 }

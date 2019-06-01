@@ -11,8 +11,18 @@ const Item: FunctionComponent<ItemProps> = (props) => {
 
     return (
         <div className="Item">
-            <img src={imageSrc} alt={props.title}></img>
+            <div className="Overlay">
+                <span>{props.title}</span>
+                <img src={imageSrc} alt={props.title}></img>
+                <ul className="Checklist">
+                    <li><label><input type="checkbox"></input><span>Blueprint</span></label></li>
+                    <li><label><input type="checkbox"></input><span>Neuroptics</span></label></li>
+                    <li><label><input type="checkbox"></input><span>Systems</span></label></li>
+                    <li><label><input type="checkbox"></input><span>Chassis</span></label></li>
+                </ul>
+            </div>
             <span>{props.title}</span>
+            <img src={imageSrc} alt={props.title}></img>
         </div>
     );
 }
