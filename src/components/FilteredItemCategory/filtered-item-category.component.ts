@@ -5,12 +5,12 @@ import ItemCategory, { ItemCategoryProps } from '../ItemCategory/item-category.c
 
 interface FilteredItemCategoryProps {
     title: string;
-    category: string;
+    category: Category;
 }
 
 const mapStateToProps = (state: AppState, ownProps: FilteredItemCategoryProps): ItemCategoryProps => {
 
-    const items = new Items({ category: [ownProps.category as Category] });
+    const items = new Items({ category: [ownProps.category] });
 
     return ({
         title: ownProps.title,

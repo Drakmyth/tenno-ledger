@@ -4,44 +4,20 @@
     border: 1px solid rgb(127, 127, 0);
     border-radius: 20;
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     text-align: center;
-    transition: transform .2s;
-}
-
-.Item:hover {
-    transform: scale(1.5);
-}
-
-.Overlay {
-    position: fixed;
-    visibility: hidden;
-    background-color: #282c34;
-    color: white;
-    border: 1px solid rgb(127, 127, 0);
-    border-radius: 20;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    transition: transform .2s;
-}
-
-.Item:hover > .Overlay {
-    visibility: visible;
+    overflow: hidden;
 }
 
 .Item img {
     padding: 10px;
 }
 
-.Checklist {
-    align-self: center;
+.Item ul {
+    grid-column: center / right;
+    grid-row: center / bottom;
     list-style-type: none;
     text-align: left;
     margin: 0;
-    padding: 0;
-}
-
-.Checklist li {
-    width: 7em;
+    padding: 0px 10px 10px 10px;
 }

@@ -1,30 +1,48 @@
 import React, { FunctionComponent } from 'react';
+import { Item, Component } from 'warframe-items';
 import './item.component.css';
 
 interface ItemProps {
-    title: string;
-    image: string;
+    item: Item;
 }
 
-const Item: FunctionComponent<ItemProps> = (props) => {
-    const imageSrc = `https://cdn.warframestat.us/img/${props.image}`
+const ItemComponent: FunctionComponent<ItemProps> = (props) => {
+    const item = props.item;
+
+    const components = buildComponents(item.components);
 
     return (
         <div className="Item">
-            <div className="Overlay">
-                <span>{props.title}</span>
-                <img src={imageSrc} alt={props.title}></img>
-                <ul className="Checklist">
-                    <li><label><input type="checkbox"></input><span>Blueprint</span></label></li>
-                    <li><label><input type="checkbox"></input><span>Neuroptics</span></label></li>
-                    <li><label><input type="checkbox"></input><span>Systems</span></label></li>
-                    <li><label><input type="checkbox"></input><span>Chassis</span></label></li>
-                </ul>
-            </div>
-            <span>{props.title}</span>
-            <img src={imageSrc} alt={props.title}></img>
+            <label>
+                    <input type="checkbox"></input>
+                    <span>{item.name}</span>
+                </label>
+            <img src={getImageSrc(item.imageName)} alt={item.name} onClick={(e) => debugItem(item)}></img>
+            <ul>{components}</ul>
         </div>
     );
 }
 
-export default Item;
+const getImageSrc = (imageName: string) =>
+    `https://cdn.warframestat.us/img/${imageName}`;
+
+const buildComponents = (components: Component[] | undefined) => {
+    if (!components) return [];
+
+    return components
+        .filter((component) => !component.uniqueName.includes('MiscItems'))
+        .map((component, index) => (
+            <li key={index}>
+                <label>
+                    <input type="checkbox"></input>
+                    <span>{component.name}</span>
+                </label>
+            </li>
+        ))
+}
+
+const debugItem = (item: Item) => {
+    console.log(item);
+}
+
+export default ItemComponent;

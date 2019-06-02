@@ -15,7 +15,11 @@ const App: FunctionComponent = () => {
         </header>
         <div className="Categories">
           <FilteredItemCategory title="Warframes" category="Warframes"></FilteredItemCategory>
-          <FilteredItemCategory title="Arcanes" category="Arcanes"></FilteredItemCategory>
+          <FilteredItemCategory title="Primary Weapons" category="Primary"></FilteredItemCategory>
+          <FilteredItemCategory title="Secondary Weapons" category="Secondary"></FilteredItemCategory>
+          <FilteredItemCategory title="Melee Weapons" category="Melee"></FilteredItemCategory>
+          <FilteredItemCategory title="Archwing" category="Archwing"></FilteredItemCategory>
+          <FilteredItemCategory title="Sentinels" category="Sentinels"></FilteredItemCategory>
         </div>
       </div>
     </Provider>

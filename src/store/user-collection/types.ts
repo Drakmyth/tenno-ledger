@@ -1,7 +1,12 @@
 import Immutable from 'immutable';
 
-export interface UserCollection {
-
+export interface ItemState {
+    acquired: boolean,
+    components: Immutable.Map<string, ItemComponentState>
 }
 
-export type UserCollectionMap = Immutable.Map<string, UserCollection>;
+export interface ItemComponentState {
+    acquired: boolean
+}
+
+export type UserCollection = Immutable.Map<string, ItemState>;

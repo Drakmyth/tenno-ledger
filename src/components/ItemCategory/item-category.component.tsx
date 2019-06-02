@@ -14,7 +14,7 @@ const ItemCategory: FunctionComponent<ItemCategoryProps> = (props) => {
     let index = 0;
 
     for (const item of props.items) {
-        elements.push(<ItemComponent title={item.name} key={index} image={item.imageName}></ItemComponent>);
+        elements.push(<ItemComponent item={item} key={index}></ItemComponent>);
         index++;
     }
 
